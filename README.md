@@ -47,6 +47,16 @@ air
 
 The application will be available at `http://localhost:8080` and will automatically reload when you make changes to the code.
 
+## Testing the API
+
+To verify if the API is running correctly, you can test the health check endpoint:
+
+```bash
+curl http://localhost:8080/v1/health
+```
+
+> **Note:** Make sure to use the port configured in your `.envrc` file. The example above uses port 8080, but you should adjust it according to your configuration.
+
 ## Development
 
 To add new environment variables:
