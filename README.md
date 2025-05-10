@@ -3,8 +3,10 @@
 ## Requirements
 
 - Go 1.24.2
+- PostgreSQL
 - direnv (for environment variables management)
 - Air (for hot reload during development)
+- migrate (for database migrations)
 
 ## Setup
 
@@ -32,6 +34,19 @@ go install github.com/air-verse/air@latest
 The project uses the following environment variables (configured in `.envrc`):
 
 - `ADDR`: Address and port where the application will run (default: ":8080")
+- `DB_ADDR`: Database connection string (default: "postgres://admin:adminpassword@localhost/gopher_social?sslmode=disable")
+
+## Database Setup
+
+1. Start the database:
+```bash
+docker compose up -d
+```
+
+2. Run migrations:
+```bash
+make migrate-up
+```
 
 ## Running the Project
 
@@ -46,6 +61,25 @@ air
 ```
 
 The application will be available at `http://localhost:8080` and will automatically reload when you make changes to the code.
+
+## Database Migrations
+
+The project uses [golang-migrate](https://github.com/golang-migrate/migrate) for database migrations. Available commands:
+
+- Create a new migration:
+```bash
+make migration <name>
+```
+
+- Apply migrations:
+```bash
+make migrate-up
+```
+
+- Revert migrations:
+```bash
+make migrate-down
+```
 
 ## Testing the API
 
