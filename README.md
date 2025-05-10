@@ -1,5 +1,7 @@
 # Gopher Social
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Requirements
 
 - Go 1.24.2
@@ -96,4 +98,8 @@ curl http://localhost:8080/v1/health
 To add new environment variables:
 
 1. Edit the `.envrc` file
-2. Run `direnv allow .` to apply the changes 
+2. Run `direnv allow .` to apply the changes
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
